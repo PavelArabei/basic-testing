@@ -38,7 +38,7 @@ describe('simpleCalculator tests', () => {
     expect(simpleCalculator({ a: 0, b: 0, action: Action.Divide })).toBeNaN();
   });
 
-  test('should exponentiate two numbers', () => {
+  test('should exponential two numbers', () => {
     expect(
       simpleCalculator({ a: 100, b: 20, action: Action.Exponentiate }),
     ).toBe(1e40);
