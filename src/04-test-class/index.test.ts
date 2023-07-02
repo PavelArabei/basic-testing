@@ -1,6 +1,3 @@
-// Uncomment the code below and write your tests
-// import { getBankAccount } from '.';
-
 import {
   getBankAccount,
   InsufficientFundsError,
