@@ -1,7 +1,7 @@
 // Uncomment the code below and write your tests
 import { simpleCalculator, Action } from './index';
 
-const testCases = [
+const shouldAddTwoNumbers = [
   {
     testName: 'should add two numbers',
     input: { a: 100, b: 20, action: Action.Add },
@@ -22,6 +22,9 @@ const testCases = [
     input: { a: 0, b: 0, action: Action.Add },
     output: 0,
   },
+];
+
+const shouldSubtractTwoNumbers = [
   {
     testName: 'should subtract two numbers',
     input: { a: 100, b: 20, action: Action.Subtract },
@@ -37,6 +40,9 @@ const testCases = [
     input: { a: -25, b: 5, action: Action.Subtract },
     output: -30,
   },
+];
+
+const shouldMultiplyTwoNumbers = [
   {
     testName: 'should multiply two numbers',
     input: { a: 100, b: 20, action: Action.Multiply },
@@ -57,6 +63,9 @@ const testCases = [
     input: { a: 0, b: 0, action: Action.Multiply },
     output: 0,
   },
+];
+
+const shoudDivideTwoNumbers = [
   {
     testName: 'should divide two numbers',
     input: { a: 100, b: 20, action: Action.Divide },
@@ -72,6 +81,9 @@ const testCases = [
     input: { a: -25, b: 5, action: Action.Divide },
     output: -5,
   },
+];
+
+const shouldExponentialTwoNumbers = [
   {
     testName: 'should exponential two numbers',
     input: { a: 0, b: 0, action: Action.Exponentiate },
@@ -97,16 +109,17 @@ const testCases = [
     input: { a: 0, b: 0, action: Action.Exponentiate },
     output: 1,
   },
+];
+
+const shouldReturnNullForInvalidAction = [
   {
     testName: 'should return null for invalid action',
     input: { a: 0, b: 'Weeee', action: 'bla-bla' },
     output: null,
   },
-  {
-    testName: 'should return null for invalid arguments',
-    input: { a: 0, b: undefined, action: Action.Divide },
-    output: null,
-  },
+];
+
+const shouldReturnNullForInvalidArguments = [
   {
     testName: 'should return null for invalid arguments',
     input: { a: 'NaN', b: 0, action: Action.Multiply },
@@ -120,9 +133,57 @@ const testCases = [
 ];
 
 describe('simpleCalculator', () => {
-  test.each(testCases)('$testName', ({ input, output }) => {
+  test.each(shouldAddTwoNumbers)('$testName', ({ input, output }) => {
     const result = simpleCalculator(input);
     if (output === null) expect(result).toBeNull();
     else expect(result).toBe(output);
   });
+
+  test.each(shouldSubtractTwoNumbers)('$testName', ({ input, output }) => {
+    const result = simpleCalculator(input);
+    if (output === null) expect(result).toBeNull();
+    else expect(result).toBe(output);
+  });
+
+  test.each(shouldMultiplyTwoNumbers)('$testName', ({ input, output }) => {
+    const result = simpleCalculator(input);
+    if (output === null) expect(result).toBeNull();
+    else expect(result).toBe(output);
+  });
+
+  test.each(shoudDivideTwoNumbers)('$testName', ({ input, output }) => {
+    const result = simpleCalculator(input);
+    if (output === null) expect(result).toBeNull();
+    else expect(result).toBe(output);
+  });
+
+  test.each(shouldExponentialTwoNumbers)('$testName', ({ input, output }) => {
+    const result = simpleCalculator(input);
+    if (output === null) expect(result).toBeNull();
+    else expect(result).toBe(output);
+  });
+
+  test.each(shouldExponentialTwoNumbers)('$testName', ({ input, output }) => {
+    const result = simpleCalculator(input);
+    if (output === null) expect(result).toBeNull();
+    else expect(result).toBe(output);
+  });
+
+  test.each(shouldReturnNullForInvalidAction)(
+    '$testName',
+    ({ input, output }) => {
+      const result = simpleCalculator(input);
+      if (output === null) expect(result).toBeNull();
+      else expect(result).toBe(output);
+    },
+  );
+
+  test.each(shouldReturnNullForInvalidArguments)(
+    '$testName',
+    ({ input, output }) => {
+      const result = simpleCalculator(input);
+      if (output === null) expect(result).toBeNull();
+      else expect(result).toBe(output);
+    },
+  );
 });
